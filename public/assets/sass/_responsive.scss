@@ -1,0 +1,238 @@
+@media (max-width: $small-screen - 1) {
+    header{
+        .accroche{
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+
+        .navbar{
+            .menu-justify{
+                justify-content: start;
+                a{
+                    &.nav-link{
+                        color: var(--couleur-bleu);
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        #slide{
+            img{
+                min-height: 400px;
+                max-height: 400px;
+            }
+        }
+
+        #mission{
+            .entreprise{
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+  // Styles pour les écrans de taille moyenne (576px - 767px)
+@media (min-width: $small-screen) and (max-width: $medium-screen - 1) {
+    header{
+        .navbar{
+            .menu-justify{
+                justify-content: start;
+                a{
+                    &.nav-link{
+                        color: var(--couleur-bleu);
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        #slide{
+            img{
+                min-height: 400px;
+                max-height: 400px;
+            }
+        }
+
+        #mission{
+            .entreprise{
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+  // Styles pour les écrans de grande taille (768px - 991px)
+@media (min-width: $medium-screen) and (max-width: $large-screen - 1) {
+    header{
+        .navbar{
+            .menu-justify{
+                justify-content: start;
+                a{
+                    &.nav-link{
+                        color: var(--couleur-bleu);
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        #slide{
+            img{
+                min-height: 300px;
+                max-height: 300px;
+            }
+        }
+    }
+}
+
+  // Styles pour les écrans de très grande taille (992px - 1199px)
+@media (min-width: $large-screen) and (max-width: $xlarge-screen - 1) {
+    header{
+        .navbar{
+            .menu-justify{
+                justify-content: space-between;
+                a{
+                    &.nav-link{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        #slide{
+            img{
+                min-height: 400px;
+                max-height: 400px;
+            }
+        }
+
+        #mission{
+            
+            .content{
+                text-align: justify;
+                padding-right: 25px;
+            }
+            img{
+                max-width: 400px;
+                float: left;
+                vertical-align: auto;
+            }
+        }
+    }
+}
+
+  // Styles pour les écrans extra-larges (à partir de 1200px)
+@media (min-width: $xlarge-screen) {
+    .navbar{
+        .menu-justify{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: white;
+            a{
+                &.nav-link{
+                    color: white;
+                }
+            }
+        }
+    }
+
+    main{
+        #slide{
+            img{
+                max-height: 400px;
+                min-height: 400px;
+            }
+        }
+
+        #mission{
+            
+            .content{
+                text-align: justify;
+                padding-right: 25px;
+            }
+            img{
+                max-width: 400px;
+                float: left;
+                vertical-align: auto;
+            }
+        }
+    }
+    
+    footer{
+        img{
+            width: 35%;
+            padding-right: 25px;
+        }
+        .presentation{
+            text-align: justify;
+            padding-right: 50px;
+        }
+    }
+}
+
+@media (min-width: 1400px){
+    header{
+        .accroche{
+            font-family: 'Poopins', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .navbar{
+            .menu-justify{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                color: white;
+                a{
+                    &.nav-link{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    main{
+        #slide{
+
+            img{
+                max-height: 500px;
+                min-height: 500px;
+            }
+        }
+
+        #mission{
+            
+            .content{
+                text-align: justify;
+                padding-right: 25px;
+            }
+            img{
+                max-width: 400px;
+                float: left;
+                vertical-align: auto;
+            }
+        }
+    }
+
+    footer{
+        img{
+            width: 40%;
+            padding-right: 25px;
+        }
+
+        .presentation{
+            padding-left: 0;
+            padding-right: 50px;
+            text-align: justify;
+        }
+    }
+}
+  

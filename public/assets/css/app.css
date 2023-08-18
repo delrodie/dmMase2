@@ -1,0 +1,367 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url("https://unpkg.com/aos@2.3.1/dist/aos.css");
+:root {
+  --couleur-vert: #0C865f;
+  --couleur-bleu: #036691;
+  --fw-700: 700;
+  --fw-500: 500;
+  --fw-800: 800;
+  --fz-14: 1.6rem;
+  --ft-pop-500: 500; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+header .accroche {
+  font-family: 'Poppins', sans-serif;
+  color: var(--couleur-vert);
+  font-weight: 600;
+  cursor: pointer; }
+  header .accroche:hover {
+    color: var(--couleur-bleu); }
+header .access {
+  background: var(--couleur-bleu);
+  padding: 7px 0;
+  font-size: 0.9rem;
+  font-weight: 500; }
+  header .access a {
+    text-decoration: none;
+    color: white;
+    padding: 10px; }
+header .access-lg {
+  font-size: 0.9rem; }
+  header .access-lg a {
+    text-decoration: none;
+    color: black; }
+    header .access-lg a:hover {
+      color: var(--couleur-vert); }
+      header .access-lg a:hover i {
+        color: var(--couleur-bleu); }
+  header .access-lg i {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--couleur-vert); }
+  header .access-lg span {
+    color: var(--couleur-bleu); }
+header .navbar {
+  background: var(--couleur-bleu);
+  font-weight: 500; }
+  header .navbar button {
+    border: solid #8f8d8d !important; }
+    header .navbar button.navbar-toggler {
+      color: white; }
+      header .navbar button.navbar-toggler span {
+        color: white; }
+        header .navbar button.navbar-toggler span.navbar-toggler-icon {
+          color: white; }
+  header .navbar .menu-justify {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
+    header .navbar .menu-justify a.nav-link {
+      color: white; }
+    header .navbar .menu-justify li.nav-item:hover {
+      background: var(--couleur-vert); }
+  header .navbar .offcanvas {
+    max-width: 70%; }
+  header .navbar .dropdown-menu {
+    border-radius: 0; }
+    header .navbar .dropdown-menu a:hover {
+      background: var(--couleur-bleu);
+      color: white; }
+
+main #slide img {
+  width: 100%;
+  object-fit: cover; }
+main h5 {
+  cursor: pointer; }
+  main h5 span {
+    background: var(--couleur-vert);
+    color: white;
+    padding: 7px 20px;
+    text-transform: uppercase;
+    box-shadow: 1px 1px 7px #757474; }
+    main h5 span:hover {
+      background: var(--couleur-bleu); }
+main #mission .content {
+  text-align: justify; }
+main #mission a {
+  text-decoration: none;
+  color: var(--couleur-vert);
+  font-style: italic;
+  font-weight: bold; }
+  main #mission a:hover {
+    color: var(--couleur-bleu); }
+main #mission table.table {
+  font-size: 0.9rem;
+  cursor: pointer; }
+  main #mission table.table td {
+    font-size: 0.9rem;
+    font-weight: 500; }
+main #mission .scroll-table {
+  max-height: 300px;
+  /* Hauteur maximale de la table pour activer le défilement */
+  overflow-y: auto;
+  /* Activation du défilement vertical si nécessaire */ }
+main #adhesion .card {
+  perspective: 1000px;
+  cursor: pointer;
+  max-height: 100%; }
+  main #adhesion .card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s; }
+  main #adhesion .card:hover .card-inner {
+    transform: rotateY(180deg); }
+  main #adhesion .card-front, main #adhesion .card-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; }
+  main #adhesion .card-front {
+    position: relative; }
+  main #adhesion .card-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold; }
+    main #adhesion .card-title.EU {
+      background-color: rgba(3, 102, 145, 0.7); }
+    main #adhesion .card-title.EI {
+      background-color: rgba(12, 134, 95, 0.7); }
+  main #adhesion .card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+  main #adhesion .card-img-top {
+    z-index: 0; }
+  main #adhesion .card-back {
+    transform: rotateY(180deg); }
+main #actualites figure {
+  overflow: hidden;
+  transition: 0.5s ease-in-out; }
+  main #actualites figure img:hover {
+    transform: scale(1.5); }
+main #actualites a {
+  text-decoration: none;
+  color: var(--couleur-bleu);
+  font-style: italic; }
+  main #actualites a::before {
+    content: '...';
+    padding-right: 1px; }
+  main #actualites a::after {
+    content: '\F134'; }
+  main #actualites a:hover {
+    color: var(--couleur-vert); }
+main #page a {
+  text-decoration: none;
+  color: #5e5d5d; }
+main #page .article-item {
+  border-bottom: solid 1px rgba(197, 195, 195, 0.5); }
+  main #page .article-item:hover {
+    background: rgba(3, 102, 145, 0.1);
+    color: #012c3f; }
+main #page .article-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center; }
+  main #page .article-content figure {
+    overflow: hidden;
+    transition: 0.5s ease-in-out; }
+  main #page .article-content:hover img {
+    transform: scale(1.5); }
+main #comite .portrait .col {
+  cursor: pointer; }
+  main #comite .portrait .col:hover h1 {
+    color: var(--couleur-vert); }
+  main #comite .portrait .col:hover h3 {
+    color: var(--couleur-bleu); }
+main #comite .portrait figure {
+  overflow: hidden;
+  transition: 0.8s ease-in-out; }
+  main #comite .portrait figure:hover img {
+    transform: scale(1.3); }
+main #comite .portrait h1 {
+  font-size: 1.2rem;
+  color: var(--couleur-bleu); }
+main #comite .portrait h3 {
+  font-size: 1rem;
+  color: #143027; }
+
+footer {
+  background-color: #012c3f;
+  border-top: solid 5px #0C865f;
+  margin-top: 100px;
+  color: #9b9b9b;
+  font-size: 0.9rem; }
+  footer img {
+    vertical-align: 25px; }
+  footer h5 {
+    text-transform: uppercase;
+    color: #b4b2b2; }
+  footer ul {
+    margin-top: 30px; }
+    footer ul li {
+      padding-top: 5px; }
+    footer ul.rubriques {
+      column-count: 2; }
+      footer ul.rubriques a:hover {
+        color: var(--couleur-vert); }
+    footer ul.contacts {
+      list-style: none; }
+  footer a {
+    text-decoration: none;
+    color: #9b9b9b; }
+  footer .format-telephone {
+    position: relative; }
+    footer .format-telephone::after {
+      content: attr(data-phone);
+      white-space: nowrap;
+      font-size: inherit;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+  footer .copyright {
+    font-size: 0.8rem;
+    padding-bottom: 10px; }
+    footer .copyright a {
+      color: #d4d3d3;
+      text-decoration: dotted 1px; }
+
+@media (max-width: 575px) {
+  header .accroche {
+    font-weight: 600;
+    font-size: 0.7rem; }
+  header .navbar .menu-justify {
+    justify-content: start; }
+    header .navbar .menu-justify a.nav-link {
+      color: var(--couleur-bleu); }
+
+  main #slide img {
+    min-height: 400px;
+    max-height: 400px; }
+  main #mission .entreprise {
+    margin-top: 50px; } }
+@media (min-width: 576px) and (max-width: 767px) {
+  header .navbar .menu-justify {
+    justify-content: start; }
+    header .navbar .menu-justify a.nav-link {
+      color: var(--couleur-bleu); }
+
+  main #slide img {
+    min-height: 400px;
+    max-height: 400px; }
+  main #mission .entreprise {
+    margin-top: 50px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  header .navbar .menu-justify {
+    justify-content: start; }
+    header .navbar .menu-justify a.nav-link {
+      color: var(--couleur-bleu); }
+
+  main #slide img {
+    min-height: 300px;
+    max-height: 300px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  header .navbar .menu-justify {
+    justify-content: space-between; }
+    header .navbar .menu-justify a.nav-link {
+      color: white; }
+
+  main #slide img {
+    min-height: 400px;
+    max-height: 400px; }
+  main #mission .content {
+    text-align: justify;
+    padding-right: 25px; }
+  main #mission img {
+    max-width: 400px;
+    float: left;
+    vertical-align: auto; } }
+@media (min-width: 1200px) {
+  .navbar .menu-justify {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: white; }
+    .navbar .menu-justify a.nav-link {
+      color: white; }
+
+  main #slide img {
+    max-height: 400px;
+    min-height: 400px; }
+  main #mission .content {
+    text-align: justify;
+    padding-right: 25px; }
+  main #mission img {
+    max-width: 400px;
+    float: left;
+    vertical-align: auto; }
+
+  footer img {
+    width: 35%;
+    padding-right: 25px; }
+  footer .presentation {
+    text-align: justify;
+    padding-right: 50px; } }
+@media (min-width: 1400px) {
+  header .accroche {
+    font-family: 'Poopins', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem; }
+  header .navbar .menu-justify {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: white; }
+    header .navbar .menu-justify a.nav-link {
+      color: white; }
+
+  main #slide img {
+    max-height: 500px;
+    min-height: 500px; }
+  main #mission .content {
+    text-align: justify;
+    padding-right: 25px; }
+  main #mission img {
+    max-width: 400px;
+    float: left;
+    vertical-align: auto; }
+
+  footer img {
+    width: 40%;
+    padding-right: 25px; }
+  footer .presentation {
+    padding-left: 0;
+    padding-right: 50px;
+    text-align: justify; } }
+
+/*# sourceMappingURL=app.css.map */

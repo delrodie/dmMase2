@@ -1,16 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Mase{% endblock %}</title>
+        <link rel="icon" href="{{ absolute_url(asset('assets/img/favicon.ico')) }}">
         {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/app.css')) }}">
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container-lg">
+            <header>
+                <section id="logo">
+                    <div class="row text-end d-block d-lg-none">
+                        <div class="col access">
+                            <a href="#"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
+                            <span>|</span>
+                            <a href="#"><i class="bi bi-person-fill-lock"></i> Connexion</a>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-center mt-3 mb-3">
+                        <div class=" col-4 col-md-4 col-lg-3 col-xl-2" data-aos="zoom-in" data-aos-duration="3000" data-aos-easing="linear">
+                            <a href="{{ absolute_url(path('app_home')) }}">
+                                <img src="{{ absolute_url(asset('assets/img/logo-mase.png')) }}" alt="Logo MASE Côte d'Ivoire" class="img-fluid" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="col-8 col-md-6 col-lg-5 accroche text-uppercase" data-aos="zoom-in" data-aos-duration="3000" data-aos-easing="linear">
+                            <span>manuel d'amelioration securite santé</span> <br>
+                            <span>Environnement des Entreprises</span>
+                        </div>
+                        <div class="d-none d-lg-block col-md-2 col-lg-4 text-end access-lg">
+                            <a href="#"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
+                            <span>|</span>
+                            <a href="#"><i class="bi bi-person-fill-lock"></i> Connexion</a>
+
+                        </div>
+                    </div>
+                </section>
+                <section id="navbar">
+                    <nav class="navbar navbar-expand-lg bg-body-primary">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="offcanvas offcanvas-end" target="-1" id="navbarSupportedContent">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 menu-justify offcanvas-body">
+                                    <li class="nav-item">
+                                        <a
+                                                class="nav-link active"
+                                                aria-current="page"
+                                                href="#"
+                                                hx-target="#page-content"
+                                                hx-get="{{ absolute_url(path('app_home')) }}"
+                                        >
+                                            <i class="bi bi-house-fill"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-hover">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            L'ASSOCIATION
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-hover">
+                                            <li>
+                                                <a
+                                                        class="dropdown-item"
+                                                        href="#"
+                                                        hx-target="#page-content"
+                                                        hx-get="page.html"
+                                                >
+                                                    Qui sommes-nous?
+
+                                                </a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Conseil d'administration</a></li>
+                                            <li>
+                                                <a
+                                                        class="dropdown-item"
+                                                        href="#"
+                                                        hx-target="#page-content"
+                                                        hx-get="comite.html"
+                                                >
+                                                    Comité de pilotage
+
+                                                </a>
+                                            </li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Adhésion</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                                class="nav-link"
+                                                href="#"
+                                                hx-target="#page-content"
+                                                hx-get="actualites.html"
+                                        >ACTUALITES</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">REFERENTIEL</a>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-hover">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            ADHESION
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-hover">
+                                            <li><a class="dropdown-item" href="#">Entreprises Utilisatrices EU</a></li>
+                                            <li><a class="dropdown-item" href="#">Entreprises Intervenantes EI</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">GALERIE</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">CONTACT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="bi bi-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </section>
+            </header>
+            <main>
+                <div id="page-content">
+                    {% block body %}{% endblock %}
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <div class="container-lg" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="linear">
+                <div class="row mt-5">
+                    <div class="col-md-12 col-lg-5 mt-5 presentation">
+                        <img src="./assets/img/logo-mase_bw.png" class="img-fluid" alt="Logo mase Côte d'Ivoire">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad accusantium perferendis soluta beatae voluptates quis. Ipsam est vel impedit sit saepe molestiae cupiditate officiis ea, distinctio maxime inventore obcaecati. Cupiditate?
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mt-5">
+                        <h5>Rubriques</h5>
+                        <ul class="rubriques">
+                            <li><a href="#">L'association</a></li>
+                            <li><a href="#">Actualités</a></li>
+                            <li><a href="#">Adhésion</a></li>
+                            <li><a href="#">Référentiels</a></li>
+                            <li><a href="#">Adherants</a></li>
+                            <li><a href="#">Galerie</a></li>
+                            <li><a href="#">Certifiés</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mt-5">
+                        <h5>Contacts</h5>
+                        <ul class="contacts">
+                            <li><i class="bi bi-geo-alt-fill"></i> Abidjan, Côte d'Ivoire</li>
+                            <li><i class="bi bi-envelope-fill"></i> 01 BP 1269 ABJ 01</li>
+                            <li><i class="bi bi-telephone-fill"></i> +225 27 21 237 927</li>
+                            <li><i class="bi bi-phone-fill"></i> +225 05 05 862 307 / 01 42 841 294</li>
+                            <li><i class="bi bi-envelope-at-fill"></i> <a href="mailto:faustin.kouadio@sir.ci">faustin.kouadio@sir.ci</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4 copyright">
+                    <hr>
+                    <div class="col-12 col-md-8 col-lg-6">
+                        &COPY; 2020-2023 <a href="#">MASE COTE D'IVOIRE</a>. Tous droits réservés!
+                    </div>
+                    <div class="col-md-4 col-lg-3 d-none d-md-block text-center">
+                        <a href="#">Backoffice</a>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block text-end">
+                        By <a href="https://dreammaker-ci.com" target="_blank">DREAM MAKER</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="{{ absolute_url(asset('assets/js/app.js')) }}"></script>
+        {% endblock %}
     </body>
 </html>
