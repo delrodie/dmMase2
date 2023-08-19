@@ -141,7 +141,7 @@
             <div class="container-lg" data-aos="fade-up" data-aos-duration="1500" data-aos-easing="linear">
                 <div class="row mt-5">
                     <div class="col-md-12 col-lg-5 mt-5 presentation">
-                        <img src="./assets/img/logo-mase_bw.png" class="img-fluid" alt="Logo mase Côte d'Ivoire">
+                        <img src="{{ absolute_url(asset('assets/img/logo-mase_bw.png')) }}" class="img-fluid" alt="Logo mase Côte d'Ivoire">
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad accusantium perferendis soluta beatae voluptates quis. Ipsam est vel impedit sit saepe molestiae cupiditate officiis ea, distinctio maxime inventore obcaecati. Cupiditate?
                         </p>
@@ -176,7 +176,7 @@
                         &COPY; 2020-2023 <a href="#">MASE COTE D'IVOIRE</a>. Tous droits réservés!
                     </div>
                     <div class="col-md-4 col-lg-3 d-none d-md-block text-center">
-                        <a href="#">Backoffice</a>
+                        <a href="{{ absolute_url(path('app_dashboard')) }}" target="_blank">Backoffice</a>
                     </div>
                     <div class="col-lg-3 d-none d-lg-block text-end">
                         By <a href="https://dreammaker-ci.com" target="_blank">DREAM MAKER</a>
