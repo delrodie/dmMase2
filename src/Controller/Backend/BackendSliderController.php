@@ -5,6 +5,7 @@ namespace App\Controller\Backend;
 use App\Entity\Slider;
 use App\Form\SliderType;
 use App\Repository\SliderRepository;
+use App\Service\AllRepositories;
 use App\Service\GestionMedia;
 use App\Service\Utility;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,7 +18,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class BackendSliderController extends AbstractController
 {
     public function __construct(
-        private GestionMedia $gestionMedia, private Utility $utility
+        private GestionMedia $gestionMedia, private Utility $utility,
+        private AllRepositories $allRepositories
     )
     {
     }
@@ -25,6 +27,7 @@ class BackendSliderController extends AbstractController
     #[Route('/', name: 'app_backend_slider_index', methods: ['GET'])]
     public function index(SliderRepository $sliderRepository): Response
     {
+        $this->allRepositories->allCache('slides', true);
         return $this->render('backend_slider/index.html.twig', [
             'sliders' => $sliderRepository->findAll(),
         ]);
