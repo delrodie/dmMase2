@@ -8,6 +8,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/app.css')) }}">
         {% endblock %}
+        <script src="https://unpkg.com/htmx.org@1.9.4"></script>
     </head>
     <body>
         <div class="container-lg">
@@ -68,10 +69,12 @@
                                         <ul class="dropdown-menu dropdown-menu-hover">
                                             <li>
                                                 <a
+{#                                                        hx-get="{{ path('app_frontend_mission_page') }}"#}
+{#                                                        hx-trigger="click"#}
+{#                                                        hx-push-url="true"#}
+{#                                                        hx-target="#page-content"#}
                                                         class="dropdown-item"
-                                                        href="#"
-                                                        hx-target="#page-content"
-                                                        hx-get="page.html"
+                                                        href="{{ absolute_url(path('app_frontend_mission_page')) }}"
                                                 >
                                                     Qui sommes-nous?
 
@@ -186,7 +189,6 @@
         </footer>
         {% block javascripts %}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="https://unpkg.com/htmx.org@1.9.4"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <script src="{{ absolute_url(asset('assets/js/app.js')) }}"></script>
         {% endblock %}

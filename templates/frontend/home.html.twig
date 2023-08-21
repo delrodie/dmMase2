@@ -23,17 +23,27 @@
 
     <section id="mission">
         <div class="row mt-5">
-            <div class="col-md-8" data-aos="fade-right" data-aos-duration="3000" data-aos-easing="linear">
-                <h5 class="rubrique"><span>Mission</span></h5>
-                <div class="content mt-5">
-                    <a href="#">
-                        <img src="http://mase-cotedivoire.com/uploads/mission/mase-masecotte-paris-62289a1288847.jpg" alt="" class="img-fluid" loading="lay">
-                    </a>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quae earum quam assumenda optio sed voluptas laudantium pariatur asperiores! Eveniet obcaecati atque perferendis ducimus nostrum dolorum repudiandae reprehenderit, animi quisquam?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iste explicabo suscipit hic distinctio, modi culpa, sunt sit unde illo ab veritatis voluptate quos, esse accusantium tempore natus reiciendis pariatur!
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt doloribus eius sit, reiciendis nemo quam porro voluptates delectus facilis distinctio itaque sunt, vel quisquam iste, qui repellendus! Optio, cumque architecto.
-                    <a href="#">Lire la suite...</a>
-                </div>
+            <div class="col-md-8" data-aos="fade-right" data-aos-duration="3000" data-aos-easing="linear">*
+                {% if mission %}
+                    <h5 class="rubrique"><span>Mission</span></h5>
+                    <div class="content mt-5">
+                        <a href="#">
+                            <img src="{{ absolute_url(asset('upload/presentation/' ~ mission.media)) }}" alt="{{ mission.titre }}" class="img-fluid" loading="lay">
+                        </a>
+                        {{ mission.contenu|striptags|slice(0,1000)|raw }}
+                        <a
+                                href="{{ absolute_url(path('app_frontend_mission_page')) }}"
+{#                                hx-target="#page-content"#}
+{#                                hx-get="{{ path('app_frontend_mission_page') }}"#}
+{#                                hx-swap="outerHTML"#}
+{#                                hx-trigger="click"#}
+{#                                hx-push-url="true"#}
+                        >
+                            Lire la suite...
+                        </a>
+                    </div>
+                {% endif %}
+
             </div>
             <div class="col-md-4 entreprise" data-aos="fade-left" data-aos-duration="3000" data-aos-easing="linear">
                 <h5><span>Nos entreprises</span></h5>

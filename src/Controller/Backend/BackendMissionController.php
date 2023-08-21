@@ -47,6 +47,7 @@ class BackendMissionController extends AbstractController
             // Gestion des medias et slug
             $this->gestionMedia->media($form, $mission, 'presentation');
             $this->utility->slug($mission);
+            $mission->setUpdatedAt($this->utility->fuseauGMT());
 
             $entityManager->persist($mission);
             $entityManager->flush();
@@ -80,6 +81,7 @@ class BackendMissionController extends AbstractController
             // Gestion des medias et slug
             $this->gestionMedia->media($form, $mission, 'presentation');
             $this->utility->slug($mission);
+            $mission->setUpdatedAt($this->utility->fuseauGMT());
 
             $entityManager->flush();
 

@@ -20,7 +20,8 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         return $this->render('frontend/home.html.twig',[
-            'slides' => $this->allRepositories->allCache('slides')
+            'slides' => $this->allRepositories->allCache('slides'),
+            'mission' => $this->allRepositories->allCache('mission')
         ]);
     }
 }
