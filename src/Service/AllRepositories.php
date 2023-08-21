@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Repository\MissionRepository;
 use App\Repository\SliderRepository;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -10,7 +11,8 @@ class AllRepositories
 {
     public function __construct(
         private CacheInterface $cache,
-        private SliderRepository $sliderRepository
+        private SliderRepository $sliderRepository,
+        private MissionRepository $missionRepository
     )
     {
     }
@@ -29,6 +31,7 @@ class AllRepositories
     {
         return match ($cacheName) {
             'slides' => $this->sliderRepository->findBy([],['id'=>"DESC"]),
+            'mission' => $this->missionRepository->findOneBy([],['id'=>"DESC"]),
             default => false,
         };
     }
