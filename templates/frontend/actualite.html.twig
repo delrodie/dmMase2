@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ mission.titre }}{% endblock %}
+
 {% block body %}
     <section id="page">
         <div class="breadcrumb mt-3">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
-                    <li class="breadcrumb-item">Qui sommes-nous?</li>
-                    <li class="breadcrumb-item active" aria-current="page">Mission</li>
+                    <li class="breadcrumb-item">Actualités</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ actualite.titre }}</li>
                 </ol>
             </nav>
         </div>
         <div class="row mt-5">
             <div class="col-lg-8">
-                <h5 class="titre">{{ mission.titre ? mission.titre }}</h5>
-                <img src="{{ absolute_url(asset('upload/presentation/' ~ mission.media)) }}" alt="" class="img-fluid">
-                {{ mission.contenu ? mission.contenu|raw }}
+                <h5 class="titre">{{ actualite.titre ? actualite.titre }}</h5>
+                <img src="{{ absolute_url(asset('upload/actualites/' ~ actualite.media)) }}" alt="{{ actualite.titre }}" class="img-fluid" loading="lazy">
+                {{ actualite.contenu ? actualite.contenu|raw }}
             </div>
             <div class="col-lg-4 d-none d-lg-block">
                 {{ render(path('app_frontend_actualite_liste')) }}
@@ -23,4 +23,6 @@
         </div>
     </section>
 {% endblock %}
+
+{% block title %}{{ actualite.titre }}{% endblock %}
 

@@ -176,8 +176,6 @@ main #actualites a {
   main #actualites a::before {
     content: '...';
     padding-right: 1px; }
-  main #actualites a::after {
-    content: '\F134'; }
   main #actualites a:hover {
     color: var(--couleur-vert); }
 main #page a {
@@ -289,7 +287,16 @@ footer {
 
   main #slide img {
     min-height: 300px;
-    max-height: 300px; } }
+    max-height: 300px; }
+  main #actualites h5.card-title {
+    font-size: .9rem; }
+  main #actualites .card-text {
+    font-size: .8rem; }
+  main #actualites img {
+    max-height: 150px;
+    min-height: 150px;
+    width: 100%;
+    object-fit: contain; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   header .navbar .menu-justify {
     justify-content: space-between; }
@@ -305,7 +312,12 @@ footer {
   main #mission img {
     max-width: 400px;
     float: left;
-    vertical-align: auto; } }
+    vertical-align: auto; }
+  main #actualites img {
+    max-height: 150px;
+    min-height: 150px;
+    width: 100%;
+    object-fit: contain; } }
 @media (min-width: 1200px) {
   .navbar .menu-justify {
     display: flex;
@@ -325,6 +337,11 @@ footer {
     max-width: 400px;
     float: left;
     vertical-align: auto; }
+  main #actualites img {
+    max-height: 250px;
+    min-height: 250px;
+    width: 100%;
+    object-fit: contain; }
 
   footer img {
     width: 35%;
@@ -355,6 +372,11 @@ footer {
     max-width: 400px;
     float: left;
     vertical-align: auto; }
+  main #actualites img {
+    max-height: 250px;
+    min-height: 250px;
+    width: 100%;
+    object-fit: contain; }
 
   footer img {
     width: 40%;

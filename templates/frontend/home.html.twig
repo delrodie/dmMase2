@@ -120,7 +120,7 @@
                             <div class="card-inner">
                                 <div class="card-front">
                                     <h5 class="card-title EI">Entreprises Intervenantes</h5>
-                                    <img src="./assets/img/adhesion_EI.png" class="card-img-top" alt="...">
+                                    <img src="{{ absolute_url(asset('assets/img/adhesion_EI.png')) }}" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-back">
                                     <div class="card-content">
@@ -137,7 +137,7 @@
                         <div class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <img src="./assets/img/adhesion_EU.png" class="card-img-top" alt="...">
+                                    <img src="{{ absolute_url(asset('assets/img/adhesion_EU.png')) }}" class="card-img-top" alt="...">
                                     <h5 class="card-title EU">Entreprises Utilisatrices</h5>
                                 </div>
                                 <div class="card-back">
@@ -154,55 +154,35 @@
         </div>
     </section>
 
-    <section id="actualites">
-        <div class="row mt-5">
-            <div class="col mt-5">
-                <h5><span>Actualités</span></h5>
+    {% if actualites %}
+        <section id="actualites">
+            <div class="row mt-5">
+                <div class="col mt-5">
+                    <h5><span>Actualités</span></h5>
+                </div>
             </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 mt-3" data-aos="zoom-out" data-aos-duration="3000" data-aos-easing="linear">
-            <div class="col">
-                <div class="card h-100">
-                    <figure>
-                        <img src="https://images.unsplash.com/photo-1686349911426-5f98a536906f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-                    </figure>
+            <div class="row row-cols-1 row-cols-md-3 mt-3" data-aos="zoom-out" data-aos-duration="3000" data-aos-easing="linear">
+                {% for actualite in actualites %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <figure>
+                                <img src="{{ absolute_url(asset('upload/actualites/' ~ actualite.media)) }}" class="card-img-top" alt="{{ actualite.titre }}">
+                            </figure>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <a href="#">Lire la suite <i class="bi bi-arrow-right-circle"></i></a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ actualite.titre }}</h5>
+                                <p class="card-text">{{ actualite.contenu|striptags|slice(0,200)|raw }}</p>
+                                <a href="#">Lire la suite <i class="bi bi-arrow-right-circle"></i></a>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">{{ actualite.updatedAt|ago }}</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://plus.unsplash.com/premium_photo-1669018130065-6d928a9a5f64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1690737214520-4aeac0695c04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1529&q=80" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

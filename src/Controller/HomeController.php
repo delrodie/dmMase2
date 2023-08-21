@@ -21,7 +21,8 @@ class HomeController extends AbstractController
     {
         return $this->render('frontend/home.html.twig',[
             'slides' => $this->allRepositories->allCache('slides'),
-            'mission' => $this->allRepositories->allCache('mission')
+            'mission' => $this->allRepositories->allCache('mission'),
+            'actualites' => $this->allRepositories->allCache('actualites')
         ]);
     }
 }

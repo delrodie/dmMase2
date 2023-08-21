@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les actualités{% endblock %}
+
+{% block body %}
+    <section id="actualites">
+        <div class="breadcrumb mt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="bi bi-house-fill"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Actualites</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 mt-3">
+            {% for actualite in actualites %}
+                <div class="col">
+                    <div class="card h-100">
+                        <figure>
+                            <img src="{{ absolute_url(asset('upload/actualites/' ~ actualite.media)) }}" class="card-img-top" alt="{{ actualite.titre }}" loading="lazy">
+                        </figure>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ actualite.titre }}</h5>
+                            <p class="card-text">{{ actualite.contenu|striptags|slice(0,200)|raw }}</p>
+                            <a href="{{ absolute_url(path('app_frontend_actualite_show',{slug: actualite.slug})) }}">Lire la suite <i class="bi bi-arrow-right-circle"></i></a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+{% endblock %}
+

@@ -21,4 +21,5 @@
 
 .idea
 /public/upload/
+.sass-cache
 

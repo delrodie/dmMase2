@@ -26,6 +26,9 @@
             "migrations/.gitignore"
         ]
     },
+    "knplabs/knp-time-bundle": {
+        "version": "v2.0.2"
+    },
     "php-flasher/flasher-sweetalert-symfony": {
         "version": "v1.15.3"
     },

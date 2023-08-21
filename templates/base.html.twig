@@ -55,9 +55,9 @@
                                         <a
                                                 class="nav-link active"
                                                 aria-current="page"
-                                                href="#"
-                                                hx-target="#page-content"
-                                                hx-get="{{ absolute_url(path('app_home')) }}"
+                                                href="{{ absolute_url(path('app_home')) }}"
+{#                                                hx-target="#page-content"#}
+{#                                                hx-get="{{ absolute_url(path('app_home')) }}"#}
                                         >
                                             <i class="bi bi-house-fill"></i>
                                         </a>
@@ -99,9 +99,9 @@
                                     <li class="nav-item">
                                         <a
                                                 class="nav-link"
-                                                href="#"
-                                                hx-target="#page-content"
-                                                hx-get="actualites.html"
+                                                href="{{ absolute_url(path('app_frontend_actualite_index')) }}"
+{#                                                hx-target="#page-content"#}
+{#                                                hx-get="actualites.html"#}
                                         >ACTUALITES</a>
                                     </li>
                                     <li class="nav-item">

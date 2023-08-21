@@ -1,0 +1,22 @@
+{% if actualites %}
+    <h5><span>Actualités</span></h5>
+    <div class="row row-cols-1 mt-3 article">
+        {% for actualite in actualites %}
+            <div class="col mb-3 article-item">
+                <a href="{{ absolute_url(path('app_frontend_actualite_show',{slug: actualite.slug})) }}">
+                    <div class="row article-content">
+                        <div class="col-4">
+                            <figure>
+                                <img src="{{ absolute_url(asset('upload/actualites/' ~ actualite.media)) }}" alt="{{ actualite.titre }}" class="img-fluid" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="col-8">
+                            <div class="titre">{{ actualite.titre }}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
