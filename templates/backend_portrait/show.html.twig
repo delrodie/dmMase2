@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portrait{% endblock %}
+
+{% block body %}
+    <h1>Portrait</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ portrait.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ portrait.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenoms</th>
+                <td>{{ portrait.prenoms }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ portrait.fonction }}</td>
+            </tr>
+            <tr>
+                <th>Biographie</th>
+                <td>{{ portrait.biographie }}</td>
+            </tr>
+            <tr>
+                <th>Media</th>
+                <td>{{ portrait.media }}</td>
+            </tr>
+            <tr>
+                <th>Ordre</th>
+                <td>{{ portrait.ordre }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ portrait.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backend_portrait_index') }}">back to list</a>
+
+    <a href="{{ path('app_backend_portrait_edit', {'id': portrait.id}) }}">edit</a>
+
+    {{ include('backend_portrait/_delete_form.html.twig') }}
+{% endblock %}

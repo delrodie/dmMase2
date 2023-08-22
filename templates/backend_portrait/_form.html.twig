@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-6 mt-3">{{ form_row(form.instance) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.nom) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.prenoms) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.fonction) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.ordre) }}</div>
+    <div class="col-12 mt-3">{{ form_row(form.biographie) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.media) }}</div><div class="col-6 mt-3">
+        {% if portrait.media %}
+            <img src="{{ absolute_url(asset('upload/presentation/' ~ portrait.media)) }}" alt="{{ portrait.nom }}" class="img-fluid">
+        {% endif %}
+    </div>
+</div>
+{{ form_widget(form) }}
+
+<div class="row mt-5">
+    <div class="col text-end">
+        <a href="{{ absolute_url(path('app_backend_portrait_index')) }}" class="btn btn-outline-secondary">Annuler</a>
+        <button type="submit" class="btn btn-primary" id="saveButton">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}
