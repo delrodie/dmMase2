@@ -172,7 +172,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ actualite.titre }}</h5>
                                 <p class="card-text">{{ actualite.contenu|striptags|slice(0,200)|raw }}</p>
-                                <a href="#">Lire la suite <i class="bi bi-arrow-right-circle"></i></a>
+                                <a href="{{ absolute_url(path('app_frontend_actualite_show',{slug: actualite.slug})) }}">Lire la suite <i class="bi bi-arrow-right-circle"></i></a>
                             </div>
                             <div class="card-footer">
                                 <small class="text-body-secondary">{{ actualite.updatedAt|ago }}</small>

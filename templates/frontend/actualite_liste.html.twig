@@ -1,6 +1,6 @@
 {% if actualites %}
     <h5><span>Actualités</span></h5>
-    <div class="row row-cols-1 mt-3 article">
+    <div class="row row-cols-1 mt-3 article" data-aos="fade-left" data-aos-duration="1500" data-aos-easing="linear">
         {% for actualite in actualites %}
             <div class="col mb-3 article-item">
                 <a href="{{ absolute_url(path('app_frontend_actualite_show',{slug: actualite.slug})) }}">

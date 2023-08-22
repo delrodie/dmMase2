@@ -15,7 +15,7 @@
 
         <div class="row row-cols-1 row-cols-md-3 mt-3">
             {% for actualite in actualites %}
-                <div class="col">
+                <div class="col" data-aos="zoom-in" data-aos-duration="3000" data-aos-easing="linear">
                     <div class="card h-100">
                         <figure>
                             <img src="{{ absolute_url(asset('upload/actualites/' ~ actualite.media)) }}" class="card-img-top" alt="{{ actualite.titre }}" loading="lazy">
