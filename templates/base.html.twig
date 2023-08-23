@@ -93,7 +93,7 @@
                                                 </a>
                                             </li>
                                             <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Adhésion</a></li>
+                                            <li><a class="dropdown-item" href="{{ absolute_url(path('app_frontend_adhesion_index')) }}">Adhésion</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -112,8 +112,8 @@
                                             ADHESION
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-hover">
-                                            <li><a class="dropdown-item" href="#">Entreprises Utilisatrices EU</a></li>
-                                            <li><a class="dropdown-item" href="#">Entreprises Intervenantes EI</a></li>
+                                            <li><a class="dropdown-item" href="{{ absolute_url(path('app_frontend_adhesion_entreprise', {'slug': 'entreprises-utilisatrices'})) }}">Entreprises Utilisatrices EU</a></li>
+                                            <li><a class="dropdown-item" href="{{ absolute_url(path('app_frontend_adhesion_entreprise', {'slug': 'entreprises-intervenantes'})) }}">Entreprises Intervenantes EI</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">

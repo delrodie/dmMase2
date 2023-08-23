@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ <section id="adhesion">
+  <div class="breadcrumb mt-3">
+   <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
+     <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'presentation'})) }}">L'association</a></li>
+     <li class="breadcrumb-item active" aria-current="page">Adhesion</li>
+    </ol>
+   </nav>
+  </div>
+
+  <div class="row mt-5">
+   <div class="col mt-5">
+    <h5><span>Adhesion</span></h5>
+    <p class="mt-5">Vous êtes une entreprise utilisatrice ou entréprise intervenante? Veuillez choisir votre statut pour pouvoir procéder à votre adhesion.
+    </p>
+   </div>
+  </div>
+  <div class="row mt-3">
+   <div class="col-md-10 col-lg-10 col-xl-8 offset-md-1 offset-lg-1 offset-xl-2 text-center">
+    <div class="row row-cols-1 row-cols-md-2 g-4" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="linear">
+
+     <div class="col">
+      <div class="card EU">
+       <div class="card-inner">
+        <div class="card-front">
+         <h5 class="card-title EI">Entreprises Intervenantes</h5>
+         <a href="{{ absolute_url(path('app_frontend_adhesion_entreprise', {'slug': 'entreprises-intervenantes'})) }}">
+          <img src="{{ absolute_url(asset('assets/img/adhesion_EI.png')) }}" class="card-img-top" alt="...">
+         </a>
+        </div>
+        <div class="card-back">
+         <div class="card-content">
+          <div class="card-body">
+           <a href="{{ absolute_url(path('app_frontend_adhesion_entreprise', {'slug': 'entreprises-intervenantes'})) }}" class="btn btn-outline-success btn-lg">Adhérer</a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="col" data-aos="fade-down-right" data-aos-duration="3000" data-aos-easing="linear">
+      <div class="card">
+       <div class="card-inner">
+        <div class="card-front">
+         <img src="{{ absolute_url(asset('assets/img/adhesion_EU.png')) }}" class="card-img-top" alt="...">
+         <h5 class="card-title EU">Entreprises Utilisatrices</h5>
+        </div>
+        <div class="card-back">
+         <div class="card-content">
+          <a href="{{ absolute_url(path('app_frontend_adhesion_entreprise', {'slug': 'entreprises-utilisatrices'})) }}" class="btn btn-outline-success btn-lg">Adhérer</a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+    </div>
+   </div>
+  </div>
+ </section>
+{% endblock %}
+
+{% block title %}
+ Adhesion
+{% endblock %}
+

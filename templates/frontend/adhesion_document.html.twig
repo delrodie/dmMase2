@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="adhesion">
+        <div class="breadcrumb mt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'presentation'})) }}">L'association</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ adherant }}</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col mt-5">
+                <h5><span>Finalisation de l'adhésion</span></h5>
+                <h6 class="text-center mt5">{{ adherant }}</h6>
+            </div>
+        </div>
+        <article class="adhesion information text-start mt-5">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <img src="{{ absolute_url(asset('upload/entreprise/'~ entreprise.logo)) }}" alt="{{ entreprise.raisonSociale }}" class="img-fluid" loading="lazy">
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-12 col mt-2">
+                            Raison social : <span>{{ entreprise.raisonSociale }}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Siège : <span>{{ entreprise.siege}}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Adresse : <span>{{  entreprise.adresse }}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Telephone : <span>{{ entreprise.telephone }}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Email : <span>{{entreprise.email}}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Année adhesion : <span>{{  entreprise.annee }}</span>
+                        </div>
+                        <div class="col-md-12 col mt-2">
+                            Domaine d'activité : <span>{{ entreprise.domaine }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                    <p>
+                        Afin de finaliser votre adhésion, veuillez télécharger, remplir, signer et déposer
+                        les fiches suivantes.
+                    </p>
+                </div>
+                {% if entreprise.type == 'EI' %}
+                    <div class="col-md-12">
+                        <a href="{{ absolute_url(asset('doc/adhesion-eu/fiche-identification.docx')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Fiche d'identification</a><br>
+                        <a href="{{ absolute_url(asset('doc/adhesion-ei/fiche-de-demande-d_adhesion.docx')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Fiche de demande adhésion MASE CÔTE D'IVOIRE EI</a><br>
+                        <a href="{{ absolute_url(asset('doc/adhesion-ei/fiche-inscription-format-referentiel.DOCX')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Fiche d'inscription format référentiel MASE CÔTE D'IVOIRE - EI</a><br>
+                        <a href="{{ absolute_url(asset('doc/adhesion-ei/convention.DOCX')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Convention de partenariat MASE CÔTE D'IVOIRE - EI</a>
+                    </div>
+                {% else %}
+                    <div class="col-md-12">
+                        <a href="{{ absolute_url(asset('doc/adhesion-eu/fiche-identification.docx')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Fiche d'identification</a><br>
+                        <a href="{{ absolute_url(asset('doc/adhesion-eu/fiche-de-demande-d_adhesion.docx')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Fiche de demande adhésion MASE CÔTE D'IVOIRE EU</a><br>
+                        <a href="{{ absolute_url(asset('doc/adhesion-eu/convention-de-partenariat.docx')) }}"> <i class="fa-regular fa-file-word fa-lg"></i> &nbsp;&nbsp; Convention de partenariat MASE CÔTE D'IVOIRE - EU</a>
+                    </div>
+                {% endif %}
+            </div>
+        </article>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Formulaire d'adhésion des {{ adherant  }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock %}
+

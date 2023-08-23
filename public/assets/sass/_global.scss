@@ -167,6 +167,15 @@ main{
     }
 
     #adhesion{
+        a{
+            text-decoration: none;
+            color: #5e5d5d;
+        }
+
+        h6{
+            color: var(--couleur-bleu);
+            font-size: 1.5rem;
+        }
         
         .card{
             perspective: 1000px;
@@ -247,6 +256,37 @@ main{
 
             &-back{
                 transform: rotateY(180deg);
+            }
+        }
+
+        article{
+            a{
+                color: var(--couleur-vert);
+                padding-top: 7px;
+
+                i{
+                    &.fa-file-word{
+                        color: var(--couleur-bleu);
+                    }
+                }
+
+                &:hover{
+                    color: var(--couleur-bleu);
+
+                    i{
+                        color: var(--couleur-vert);
+                    }
+                }
+            }
+
+            span{
+                font-weight: bold;
+                color: var(--couleur-bleu);
+                cursor: pointer;
+
+                &:hover{
+                    color: var(--couleur-vert);
+                }
             }
         }
     }

@@ -107,6 +107,12 @@ main #mission .scroll-table {
   /* Hauteur maximale de la table pour activer le défilement */
   overflow-y: auto;
   /* Activation du défilement vertical si nécessaire */ }
+main #adhesion a {
+  text-decoration: none;
+  color: #5e5d5d; }
+main #adhesion h6 {
+  color: var(--couleur-bleu);
+  font-size: 1.5rem; }
 main #adhesion .card {
   perspective: 1000px;
   cursor: pointer;
@@ -164,6 +170,21 @@ main #adhesion .card {
     z-index: 0; }
   main #adhesion .card-back {
     transform: rotateY(180deg); }
+main #adhesion article a {
+  color: var(--couleur-vert);
+  padding-top: 7px; }
+  main #adhesion article a i.fa-file-word {
+    color: var(--couleur-bleu); }
+  main #adhesion article a:hover {
+    color: var(--couleur-bleu); }
+    main #adhesion article a:hover i {
+      color: var(--couleur-vert); }
+main #adhesion article span {
+  font-weight: bold;
+  color: var(--couleur-bleu);
+  cursor: pointer; }
+  main #adhesion article span:hover {
+    color: var(--couleur-vert); }
 main #actualites figure {
   overflow: hidden;
   transition: 0.5s ease-in-out; }

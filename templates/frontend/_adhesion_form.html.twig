@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+<div class="row text-start">
+    <div class="col-md-6 mt-5">{{ form_row(form.raisonSociale) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.siege) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.rc) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.cc) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.adresse) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.telephone) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.email) }}</div>
+    <div class="col-md-6 mt-5">{{ form_row(form.annee) }}</div>
+    <div class="col-12 mt-5">{{ form_row(form.domaine) }}</div>
+    <div class="col-12 mt-5">{{ form_row(form.logo) }}</div>
+</div>
+{{ form_widget(form) }}
+<div class="d-grid gap-2 col-12 col-md-10 col-lg-8 col-xl-6 mx-auto mt-5">
+    <button class="btn btn-primary btn-lg" type="submit">Envoyer</button>
+</div>
+{{ form_end(form) }}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="adhesion">
+        <div class="breadcrumb mt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'presentation'})) }}">L'association</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ adherant }}</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col mt-5">
+                <h5><span>Formulaire d'identification</span></h5>
+                <h6 class="text-center mt5">{{ adherant }}</h6>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-10 col-lg-10 col-xl-8 offset-md-1 offset-lg-1 offset-xl-2 text-center">
+                {{ include('frontend/_adhesion_form.html.twig') }}
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Formulaire d'adhésion des {{ adherant  }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ absolute_url(asset('backoffice/vendor/js/jquery.min.js')) }}"></script>
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+    <script src="{{ absolute_url(asset('backoffice/js/upload-init.js')) }}"></script>
+{% endblock %}
+
