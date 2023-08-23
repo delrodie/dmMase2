@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-3 mt-3" data-aos="zoom-out" data-aos-duration="3000" data-aos-easing="linear">
-                {% for actualite in actualites %}
+                {% for actualite in actualites|slice(0,3) %}
                     <div class="col">
                         <div class="card h-100">
                             <figure>
