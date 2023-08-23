@@ -29,6 +29,9 @@ class BackendPortraitController extends AbstractController
     #[Route('/', name: 'app_backend_portrait_index', methods: ['GET'])]
     public function index(PortraitRepository $portraitRepository): Response
     {
+        $administrations = $this->allRepositories->allCache('administration', true);
+        $comite = $this->allRepositories->allCache('comite', true);
+//        dd($comite);
         return $this->render('backend_portrait/index.html.twig', [
             'portraits' => $portraitRepository->findAll(),
         ]);

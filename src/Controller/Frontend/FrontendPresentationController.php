@@ -20,7 +20,15 @@ class FrontendPresentationController extends AbstractController
             'presentation' => $this->render('frontend/presentation.html.twig',[
                 'presentation' => $this->allRepositories->allCache('presentation')
             ]),
-            default => false,
+            'conseil-administration' => $this->render('frontend/portrait.html.twig',[
+                'portraits' => $this->allRepositories->allCache('administration'),
+                'titre' => "Conseil d'administration"
+            ]),
+            'comite-de-pilotage' => $this->render('frontend/portrait.html.twig',[
+                'portraits' => $this->allRepositories->allCache('comite'),
+                'titre' => "Comité de pilotage"
+            ]),
+            default => $this->redirectToRoute('app_home'),
         };
     }
 

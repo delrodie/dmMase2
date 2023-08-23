@@ -80,13 +80,13 @@
 
                                                 </a>
                                             </li>
-                                            <li><a class="dropdown-item" href="#">Conseil d'administration</a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'conseil-administration'})) }}">Conseil d'administration</a>
+                                            </li>
                                             <li>
                                                 <a
                                                         class="dropdown-item"
-                                                        href="#"
-                                                        hx-target="#page-content"
-                                                        hx-get="comite.html"
+                                                        href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'comite-de-pilotage'})) }}"
                                                 >
                                                     Comité de pilotage
 

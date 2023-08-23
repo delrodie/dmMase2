@@ -196,6 +196,9 @@ main #page .article-content {
     transition: 0.5s ease-in-out; }
   main #page .article-content:hover img {
     transform: scale(1.5); }
+main #comite a {
+  text-decoration: none;
+  color: #5e5d5d; }
 main #comite .portrait .col {
   cursor: pointer; }
   main #comite .portrait .col:hover h1 {

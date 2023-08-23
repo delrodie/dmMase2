@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Repository\ActualiteRepository;
 use App\Repository\MissionRepository;
+use App\Repository\PortraitRepository;
 use App\Repository\PresentationRepository;
 use App\Repository\SliderRepository;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -16,7 +17,8 @@ class AllRepositories
         private SliderRepository $sliderRepository,
         private MissionRepository $missionRepository,
         private ActualiteRepository $actualiteRepository,
-        private PresentationRepository $presentationRepository
+        private PresentationRepository $presentationRepository,
+        private PortraitRepository $portraitRepository
     )
     {
     }
@@ -38,7 +40,9 @@ class AllRepositories
             'mission' => $this->missionRepository->findOneBy([],['id'=>"DESC"]),
             'actualites' => $this->actualiteRepository->findBy([],['id'=>"DESC"]),
             'presentation' => $this->presentationRepository->findOneBy([],['id'=>"DESC"]),
-            default => false,
+            'administration' => $this->portraitRepository->findByInstance('conseil'),
+            'comite' => $this->portraitRepository->findByInstance('pilotage'),
+            default => [],
         };
     }
 }

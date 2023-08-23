@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section id="comite">
+        <div class="breadcrumb mt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'presentation'})) }}">Qui sommes-nous?</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ titre }}</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col mt-5 mb-5">
+                <h5><span>{{ titre }}</span></h5>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 text-center portrait">
+            {% for portrait in portraits %}
+                <div class="col">
+                    <figure>
+                        {% if portrait.media %}
+                            <img src="{{ absolute_url(asset('upload/presentation/' ~ portrait.media)) }}" alt="{{ portrait.nom }} {{ portrait.prenoms }}" class="img-fluid">
+                        {% else %}
+                            <img src="{{ absolute_url(asset('assets/img/avatar.png')) }}" alt="{{ portrait.nom }} {{ portrait.prenoms }}" class="img-fluid">
+                        {% endif %}
+                    </figure>
+
+                    <h1>{{ portrait.nom|upper }} {{ portrait.prenoms|title }}</h1>
+                    <h3>{{ portrait.fonction }}</h3>
+                </div>
+            {% else %}
+                <div class="col">
+                    <em>Enregistrement en cours des memebres du {{ titre }}</em>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}{{ titre }}{% endblock %}
+

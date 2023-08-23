@@ -45,4 +45,15 @@ class PortraitRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findByInstance(string $string)
+    {
+        return $this->createQueryBuilder('p')
+            ->addSelect('i')
+            ->leftJoin('p.instance', 'i')
+            ->where('i.titre LIKE :instance')
+            ->orderBy('p.ordre', 'ASC')
+            ->setParameter('instance', "%{$string}%")
+            ->getQuery()->getResult()
+            ;
+    }
 }
