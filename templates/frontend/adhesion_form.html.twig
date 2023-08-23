@@ -41,5 +41,15 @@
     {{ parent() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <script src="{{ absolute_url(asset('backoffice/js/upload-init.js')) }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var sendButton = document.getElementById("sendButton");
+
+            sendButton.addEventListener("click", function() {
+                sendButton.classList.add("button-processing");
+                sendButton.innerHTML = "Envoi en cours...";
+            });
+        })
+    </script>
 {% endblock %}
 

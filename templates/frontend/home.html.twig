@@ -54,46 +54,12 @@
                         <th class="text-center">ENTREPRISES</th>
                         </thead>
                         <tbody id="scrollable-tbody">
-                        <tr>
-                            <td>1</td>
-                            <td>ENTREPRISE 1</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>ENTREPRISE 2</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>ENTREPRISE 3</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>ENTREPRISE 4</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>ENTREPRISE 5</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>ENTREPRISE 6</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>ENTREPRISE 7</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>ENTREPRISE 8</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>ENTREPRISE 9</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>ENTREPRISE 10</td>
-                        </tr>
+                        {% for entreprise in entreprises %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ entreprise.raisonSociale }}</td>
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

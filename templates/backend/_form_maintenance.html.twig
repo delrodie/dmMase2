@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col text-end">
+            {{ form_row(form.statut) }}
+        </div>
+        <div class="col text-start"><button class="btn btn-primary btn-sm">
+                {{ button_label|default(maintenance.statut ? 'Désactiver' : 'Activer') }}
+            </button></div>
+    </div>
+
+{{ form_widget(form) }}
+{{ form_end(form) }}

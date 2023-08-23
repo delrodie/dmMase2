@@ -3,6 +3,8 @@
 namespace App\Service;
 
 use App\Repository\ActualiteRepository;
+use App\Repository\EntrepriseRepository;
+use App\Repository\MaintenanceRepository;
 use App\Repository\MissionRepository;
 use App\Repository\PortraitRepository;
 use App\Repository\PresentationRepository;
@@ -18,9 +20,19 @@ class AllRepositories
         private MissionRepository $missionRepository,
         private ActualiteRepository $actualiteRepository,
         private PresentationRepository $presentationRepository,
-        private PortraitRepository $portraitRepository
+        private PortraitRepository $portraitRepository,
+        private EntrepriseRepository $entrepriseRepository,
+        private MaintenanceRepository $maintenanceRepository
     )
     {
+    }
+
+    public function isMaintenance(): bool
+    {
+        $maintenance = $this->maintenanceRepository->findOneBy(['statut'=>true]) ;
+        if ($maintenance) return true;
+
+        return false;
     }
 
     public function allCache(string $cacheName, bool $delete = false)
@@ -42,6 +54,7 @@ class AllRepositories
             'presentation' => $this->presentationRepository->findOneBy([],['id'=>"DESC"]),
             'administration' => $this->portraitRepository->findByInstance('conseil'),
             'comite' => $this->portraitRepository->findByInstance('pilotage'),
+            'entreprise' => $this->entrepriseRepository->findAll(),
             default => [],
         };
     }

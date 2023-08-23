@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tbody = document.getElementById('scrollable-tbody');
         const rows = tbody.getElementsByTagName('tr');
-        const rowsPerPage = 5;
+        const rowsPerPage = 10;
         let currentPage = 0;
         let scrollingDirection = 'down'; // Direction du défilement automatique
 

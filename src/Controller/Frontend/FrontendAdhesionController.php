@@ -62,7 +62,7 @@ class FrontendAdhesionController extends AbstractController
 
             $this->entrepriseRepository->save($entreprise, true);
 
-            sweetalert()->addSuccess("Félicitations! Votre formulaire d'identification a été envoyé avec succès! Veuillez télécharger les docucments");
+            sweetalert()->addSuccess("Félicitations! Votre formulaire d'identification a été envoyé avec succès! Veuillez télécharger les documents et les domposer pour la finalisation de votre adhésion");
 
             return $this->redirectToRoute('app_frontend_adhesion_document',[
                 'slug' => $entreprise->getSlug(),

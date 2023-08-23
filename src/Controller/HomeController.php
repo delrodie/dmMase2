@@ -19,10 +19,14 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        if ($this->allRepositories->isMaintenance()){
+            return $this->render('frontend/maintenance.html.twig');
+        }
         return $this->render('frontend/home.html.twig',[
             'slides' => $this->allRepositories->allCache('slides'),
             'mission' => $this->allRepositories->allCache('mission'),
-            'actualites' => $this->allRepositories->allCache('actualites')
+            'actualites' => $this->allRepositories->allCache('actualites'),
+            'entreprises' => $this->allRepositories->allCache('entreprise')
         ]);
     }
 }
