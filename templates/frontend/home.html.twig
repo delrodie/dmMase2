@@ -23,7 +23,7 @@
 
     <section id="mission">
         <div class="row mt-5">
-            <div class="col-md-8" data-aos="fade-right" data-aos-duration="3000" data-aos-easing="linear">*
+            <div class="col-md-8" data-aos="fade-right" data-aos-duration="3000" data-aos-easing="linear">
                 {% if mission %}
                     <h5 class="rubrique"><span>Mission</span></h5>
                     <div class="content mt-5">
@@ -48,6 +48,7 @@
             <div class="col-md-4 entreprise" data-aos="fade-left" data-aos-duration="3000" data-aos-easing="linear">
                 <h5><span>Nos adhérents</span></h5>
                 <div class="content mt-5">
+                    <div style="font-size: .8rem; font-style:italic; margin-bottom: 5px; color: #0d4982; font-weight:bold;">10 choix aléatoires des {{ entreprises|length }} adhérents</div>
                     <table class="table table-hover table-bordered table-striped table-sm scroll-table">
                         <thead>
                         <th class="text-center">#</th>
@@ -56,7 +57,7 @@
                         <tbody>
                         {% for entreprise in entreprises|slice(0,10) %}
                             <tr>
-                                <td>{{ loop.index }}</td>
+                                <td>{{ entreprise.id }}</td>
                                 <td>{{ entreprise.raisonSociale }}</td>
                             </tr>
                         {% endfor %}
@@ -64,7 +65,7 @@
                     </table>
                 </div>
                 <div class="text-center">
-                    <a href="#" class="btn btn-outline-success btn-sm">Voir toutes les entreprises</a>
+{#                    <a href="#" class="btn btn-outline-success btn-sm">Voir tous les adhérents</a>#}
 {#                    <button id="scrollUpBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-up"></i></button>#}
 {#                    <button id="scrollDownBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-down"></i></button>#}
                 </div>
