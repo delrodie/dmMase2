@@ -37,7 +37,7 @@ class AllRepositories
 
     public function getEntrepriseAleatoire(): bool
     {
-        $entreprises = $this->allCache('entreprise');
+        $entreprises = $this->allCache('entreprise', true);
 
         return shuffle($entreprises);
     }
