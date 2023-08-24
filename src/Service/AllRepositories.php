@@ -35,6 +35,13 @@ class AllRepositories
         return false;
     }
 
+    public function getEntrepriseAleatoire(): bool
+    {
+        $entreprises = $this->allCache('entreprise');
+
+        return shuffle($entreprises);
+    }
+
     public function allCache(string $cacheName, bool $delete = false)
     {
         if ($delete) $this->cache->delete($cacheName);
@@ -54,7 +61,7 @@ class AllRepositories
             'presentation' => $this->presentationRepository->findOneBy([],['id'=>"DESC"]),
             'administration' => $this->portraitRepository->findByInstance('conseil'),
             'comite' => $this->portraitRepository->findByInstance('pilotage'),
-            'entreprise' => $this->entrepriseRepository->findBy(['valid' => true]),
+            'entreprise' => $this->entrepriseRepository->findAll(),
             default => [],
         };
     }

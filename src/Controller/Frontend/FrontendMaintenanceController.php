@@ -23,7 +23,7 @@ class FrontendMaintenanceController extends AbstractController
             'slides' => $this->allRepositories->allCache('slides'),
             'mission' => $this->allRepositories->allCache('mission'),
             'actualites' => $this->allRepositories->allCache('actualites'),
-            'entreprises' => $this->allRepositories->allCache('entreprise')
+            'entreprises' => $this->allRepositories->getEntrepriseAleatoire()
         ]);
     }
 }
