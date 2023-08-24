@@ -1,0 +1,89 @@
+{% extends 'backend_layout.html.twig' %}
+
+{% block title %}{{ parent() }} Gestion de la liste des messages{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+            <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h4 class="fw-semibold mb-8">Gestion des messages</h4>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-muted" href="#">Modules</a></li>
+                                <li class="breadcrumb-item"><a class="text-muted" href="#">Pages</a></li>
+                                <li class="breadcrumb-item" aria-current="page">messages</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center mb-n5">
+                            <span class="head-icon"><i class="ti-package"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col"><h5 class="mb-2 fw-semibold fs-4">Liste</h5></div>
+                                <div class="col">
+                                    <div class="action">
+                                        <a class="btn btn-primary" href="{{ path('app_backend_message_index') }}"><i class="ti-list"></i> Liste</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row text-end">
+                                        <div class="col-12 mt-3">ID :</div>
+                                        <div class="col-12 mt-3">DATE :</div>
+                                        <div class="col-12 mt-3">NOM :</div>
+                                        <div class="col-12 mt-3">EMAIL :</div>
+                                        <div class="col-12 mt-3">OBJET :</div>
+                                        <div class="col-12 mt-3">MESSAGE :</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">{{ message.id }}</div>
+                                        <div class="col-12 mt-3">{{ message.sendAt|date('Y-m-d H:i:s') }}</div>
+                                        <div class="col-12 mt-3">{{ message.nom }}</div>
+                                        <div class="col-12 mt-3">{{ message.email }}</div>
+                                        <div class="col-12 mt-3">{{ message.objet }}</div>
+                                        <div class="col-12 mt-3">{{ message.contenu }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col text-center">
+                                    <a href="{{ absolute_url(path('app_backend_message_index')) }}"
+                                       class="btn btn-outline-secondary">Annuler</a>
+                                    <a href="#"
+                                       class="btn btn-primary">Repondre</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="primary-header-modal" class="modal fade" tabindex="-1" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
