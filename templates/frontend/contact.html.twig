@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <section id="contact">
+        <div class="breadcrumb mt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ absolute_url(path('app_home')) }}"><i class="bi bi-house-fill"></i></a></li>
+{#                    <li class="breadcrumb-item">Qui sommes-nous?</li>#}
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row g-4 mt-5">
+            <div class="col-12 col-lg-6 formulaire">
+                <h5><span>Nous ecrire</span></h5>
+                {{ form_start(form) }}
+                <div class="row row-cols-1 mt-5">
+                    <div class="form-floating mt-3">
+                        {{ form_widget(form.nom) }}
+                        {{ form_label(form.nom) }}{{ form_errors(form.nom) }}
+                    </div>
+                    <div class="form-floating mt-3">
+                        {{ form_widget(form.email) }}
+                        {{ form_label(form.email) }} {{ form_errors(form.email) }}
+                    </div>
+                    <div class="form-floating mt-3">
+                        {{ form_widget(form.objet) }}
+                        {{ form_label(form.objet) }} {{ form_errors(form.objet) }}
+                    </div>
+                    <div class="form-floating mt-3">
+                        {{ form_widget(form.contenu) }}
+                        {{ form_label(form.contenu) }} {{ form_errors(form.contenu) }}
+                    </div>
+                    <div class="mt-5 d-grid gap-2">
+                        {{ form_widget(form) }}
+                        <button class="btn btn-primary" type="submit" id="sendButton"><i class="bi bi-send"></i> Envoyer</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="col-12 col-lg-6 cordonnees">
+                <h5><span>Nous contacter</span></h5>
+                <div class="row row-cols-1 mt-5 gap-4">
+                    <div class="col">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <a href="#">Abidjan, Côte d'Ivoire</a>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-envelope-fill"></i>
+                        <a href="#">01 BP 1269 ABJ 01</a>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-telephone-fill"></i>
+                        <a href="#">+225 27 21 237 927</a>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-phone-fill"></i>
+                        <a href="tel:+225">+225 05 05 862 307</a> /
+                        <a href="tel:+225">01 42 841 294</a>
+
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-envelope-at-fill"></i> <a href="mailto:faustin.kouadio@sir.ci">faustin.kouadio@sir.ci</a>
+                    </div>
+                    <div class="col">
+                        <i class="bi bi-pin-map-fill"></i> <a href="#" target="_blank">Nous rejoindre via le map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var sendButton = document.getElementById("sendButton");
+
+            sendButton.addEventListener("click", function() {
+                sendButton.classList.add("button-processing");
+                sendButton.innerHTML = "Envoi en cours...";
+            });
+        })
+    </script>
+{% endblock %}
+
+

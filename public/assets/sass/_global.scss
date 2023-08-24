@@ -398,6 +398,44 @@ main{
             }
         }
     }
+
+    #contact{
+
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .cordonnees{
+            padding-bottom: 100px;
+            background: var(--couleur-bleu);
+            color: #fff;
+            height: 100%;
+
+            .row{
+                padding-left: 30px;
+            }
+
+            .col{
+                &:hover{
+                    i{
+                        color: #66a6f8;
+                    }
+                    a{
+                        color: #66a6f8;
+                    }
+                }
+            }
+
+            i{
+                font-size: 1.1rem;
+                border: solid 1px #fff;
+                border-radius: 100%;
+                padding: 7px;
+                margin-right: 10px;
+            }
+        }
+    }
 }
 
 footer{

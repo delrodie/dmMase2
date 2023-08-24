@@ -237,6 +237,26 @@ main #comite .portrait h1 {
 main #comite .portrait h3 {
   font-size: 1rem;
   color: #143027; }
+main #contact a {
+  text-decoration: none;
+  color: #fff; }
+main #contact .cordonnees {
+  padding-bottom: 100px;
+  background: var(--couleur-bleu);
+  color: #fff;
+  height: 100%; }
+  main #contact .cordonnees .row {
+    padding-left: 30px; }
+  main #contact .cordonnees .col:hover i {
+    color: #66a6f8; }
+  main #contact .cordonnees .col:hover a {
+    color: #66a6f8; }
+  main #contact .cordonnees i {
+    font-size: 1.1rem;
+    border: solid 1px #fff;
+    border-radius: 100%;
+    padding: 7px;
+    margin-right: 10px; }
 
 footer {
   background-color: #012c3f;
@@ -291,7 +311,9 @@ footer {
     min-height: 400px;
     max-height: 400px; }
   main #mission .entreprise {
-    margin-top: 50px; } }
+    margin-top: 50px; }
+  main #contact .cordonnees {
+    margin-top: 100px; } }
 @media (min-width: 576px) and (max-width: 767px) {
   header .navbar .menu-justify {
     justify-content: start; }
@@ -302,7 +324,9 @@ footer {
     min-height: 400px;
     max-height: 400px; }
   main #mission .entreprise {
-    margin-top: 50px; } }
+    margin-top: 50px; }
+  main #contact .cordonnees {
+    margin-top: 100px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   header .navbar .menu-justify {
     justify-content: start; }
@@ -320,7 +344,9 @@ footer {
     max-height: 150px;
     min-height: 150px;
     width: 100%;
-    object-fit: contain; } }
+    object-fit: contain; }
+  main #contact .cordonnees {
+    margin-top: 100px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   header .navbar .menu-justify {
     justify-content: space-between; }
@@ -366,6 +392,8 @@ footer {
     min-height: 250px;
     width: 100%;
     object-fit: contain; }
+  main #contact .formulaire {
+    padding-right: 50px; }
 
   footer img {
     width: 35%;
