@@ -47,4 +47,12 @@ class FrontendContactController extends AbstractController
             'contact' => $this->allRepositories->allCache('contact'),
         ]);
     }
+
+    #[Route('/footer', name: 'app_frontend_contact_footer')]
+    public function footer(): Response
+    {
+        return $this->render('frontend/contact_footer.html.twig',[
+            'contact' => $this->allRepositories->allCache('contact')
+        ]);
+    }
 }

@@ -152,24 +152,20 @@
                     <div class="col-md-6 col-lg-3 mt-5">
                         <h5>Rubriques</h5>
                         <ul class="rubriques">
-                            <li><a href="#">L'association</a></li>
-                            <li><a href="#">Actualités</a></li>
-                            <li><a href="#">Adhésion</a></li>
-                            <li><a href="#">Référentiels</a></li>
-                            <li><a href="#">Adherants</a></li>
+                            <li><a href="{{ absolute_url(path('app_frontend_presentation_index',{slug: 'presentation'})) }}">L'association</a></li>
+                            <li><a href="{{ absolute_url(path('app_frontend_actualite_index')) }}">Actualités</a></li>
+                            <li><a href="{{ absolute_url(path('app_frontend_adhesion_index')) }}">Adhésion</a></li>
+                            <li><a href="{{ absolute_url(path('app_frontend_referentiel_index')) }}">Référentiels</a></li>
+                            <li><a href="#">Adherents</a></li>
                             <li><a href="#">Galerie</a></li>
                             <li><a href="#">Certifiés</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{ absolute_url(path('app_frontend_contact_toggle')) }}">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-4 mt-5">
                         <h5>Contacts</h5>
                         <ul class="contacts">
-                            <li><i class="bi bi-geo-alt-fill"></i> Abidjan, Côte d'Ivoire</li>
-                            <li><i class="bi bi-envelope-fill"></i> 01 BP 1269 ABJ 01</li>
-                            <li><i class="bi bi-telephone-fill"></i> +225 27 21 237 927</li>
-                            <li><i class="bi bi-phone-fill"></i> +225 05 05 862 307 / 01 42 841 294</li>
-                            <li><i class="bi bi-envelope-at-fill"></i> <a href="mailto:faustin.kouadio@sir.ci">faustin.kouadio@sir.ci</a></li>
+                            {{ render(absolute_url(path('app_frontend_contact_footer'))) }}
                         </ul>
                     </div>
                 </div>
