@@ -53,8 +53,8 @@
                         <th class="text-center">#</th>
                         <th class="text-center">ENTREPRISES</th>
                         </thead>
-                        <tbody id="scrollable-tbody">
-                        {% for entreprise in entreprises %}
+                        <tbody>
+                        {% for entreprise in entreprises|slice(0,10) %}
                             <tr>
                                 <td>{{ loop.index }}</td>
                                 <td>{{ entreprise.raisonSociale }}</td>
@@ -64,8 +64,9 @@
                     </table>
                 </div>
                 <div class="text-center">
-                    <button id="scrollUpBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-up"></i></button>
-                    <button id="scrollDownBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-down"></i></button>
+                    <a href="#" class="btn btn-outline-success btn-sm">Voir toutes les entreprises</a>
+{#                    <button id="scrollUpBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-up"></i></button>#}
+{#                    <button id="scrollDownBtn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-chevron-double-down"></i></button>#}
                 </div>
             </div>
         </div>

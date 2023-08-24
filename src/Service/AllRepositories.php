@@ -54,7 +54,7 @@ class AllRepositories
             'presentation' => $this->presentationRepository->findOneBy([],['id'=>"DESC"]),
             'administration' => $this->portraitRepository->findByInstance('conseil'),
             'comite' => $this->portraitRepository->findByInstance('pilotage'),
-            'entreprise' => $this->entrepriseRepository->findAll(),
+            'entreprise' => $this->entrepriseRepository->findBy(['valid' => true]),
             default => [],
         };
     }
