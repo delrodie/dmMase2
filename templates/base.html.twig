@@ -16,9 +16,9 @@
                 <section id="logo">
                     <div class="row text-end d-block d-lg-none">
                         <div class="col access">
-                            <a href="#"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
+                            <a href="{{ absolute_url(path('app_login')) }}"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
                             <span>|</span>
-                            <a href="#"><i class="bi bi-person-fill-lock"></i> Connexion</a>
+                            <a href="{{ absolute_url(path('app_login')) }}"><i class="bi bi-person-fill-lock"></i> Connexion</a>
                         </div>
                     </div>
                     <div class="row d-flex align-items-center mt-3 mb-3">
@@ -32,9 +32,9 @@
                             <span>Environnement des Entreprises</span>
                         </div>
                         <div class="d-none d-lg-block col-md-2 col-lg-4 text-end access-lg">
-                            <a href="#"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
+                            <a href="{{ absolute_url(path('app_login')) }}"><i class="bi bi-person-fill-add"></i> Devenez membre </a>
                             <span>|</span>
-                            <a href="#"><i class="bi bi-person-fill-lock"></i> Connexion</a>
+                            <a href="{{ absolute_url(path('app_login')) }}"><i class="bi bi-person-fill-lock"></i> Connexion</a>
 
                         </div>
                     </div>
@@ -122,11 +122,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ absolute_url(path('app_frontend_contact_toggle')) }}">CONTACT</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <i class="bi bi-search"></i>
-                                        </a>
-                                    </li>
+{#                                    <li class="nav-item">#}
+{#                                        <a class="nav-link" href="#">#}
+{#                                            <i class="bi bi-search"></i>#}
+{#                                        </a>#}
+{#                                    </li>#}
                                 </ul>
                             </div>
                         </div>
@@ -145,9 +145,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12 col-lg-5 mt-5 presentation">
                         <img src="{{ absolute_url(asset('assets/img/logo-mase_bw.png')) }}" class="img-fluid" alt="Logo mase Côte d'Ivoire">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad accusantium perferendis soluta beatae voluptates quis. Ipsam est vel impedit sit saepe molestiae cupiditate officiis ea, distinctio maxime inventore obcaecati. Cupiditate?
-                        </p>
+                        {{ render(absolute_url(path('app_frontend_presentation_footer'))) }}
                     </div>
                     <div class="col-md-6 col-lg-3 mt-5">
                         <h5>Rubriques</h5>

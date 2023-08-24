@@ -4,6 +4,7 @@ namespace App\Controller\Frontend;
 
 use App\Service\AllRepositories;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/qui-sommes-nous')]
@@ -13,8 +14,16 @@ class FrontendPresentationController extends AbstractController
     {
     }
 
+    #[Route('/', name: 'app_frontend_presentation_footer')]
+    public function footer(): Response
+    {
+        return $this->render('frontend/presentation_footer.html.twig',[
+            'presentation' => $this->allRepositories->allCache('presentation')
+        ]);
+    }
+
     #[Route('/{slug}', name: 'app_frontend_presentation_index')]
-    public function index($slug)
+    public function index($slug): Response
     {
         return match ($slug){
             'presentation' => $this->render('frontend/presentation.html.twig',[
