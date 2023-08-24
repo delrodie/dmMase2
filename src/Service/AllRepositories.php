@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Repository\ActualiteRepository;
+use App\Repository\ContactRepository;
 use App\Repository\EntrepriseRepository;
 use App\Repository\MaintenanceRepository;
 use App\Repository\MissionRepository;
@@ -22,7 +23,8 @@ class AllRepositories
         private PresentationRepository $presentationRepository,
         private PortraitRepository $portraitRepository,
         private EntrepriseRepository $entrepriseRepository,
-        private MaintenanceRepository $maintenanceRepository
+        private MaintenanceRepository $maintenanceRepository,
+        private ContactRepository $contactRepository
     )
     {
     }
@@ -64,6 +66,7 @@ class AllRepositories
             'administration' => $this->portraitRepository->findByInstance('conseil'),
             'comite' => $this->portraitRepository->findByInstance('pilotage'),
             'entreprise' => $this->entrepriseRepository->findAll(),
+            'contact' => $this->contactRepository->findOneBy([],['id'=>"DESC"]),
             default => [],
         };
     }

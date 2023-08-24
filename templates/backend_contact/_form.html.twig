@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+    <div class="row row-cols-2 g-4">
+        <div class="col mt-3">{{ form_row(form.adresse) }}</div>
+        <div class="col mt-3">{{ form_row(form.bp) }}</div>
+        <div class="col mt-3">{{ form_row(form.phone) }}</div>
+        <div class="col mt-3">{{ form_row(form.email) }}</div>
+        <div class="col mt-3">{{ form_row(form.map) }}</div>
+    </div>
+    {{ form_widget(form) }}
+    <div class="mt-5 text-end">
+        <a href="{{ absolute_url(path('app_backend_contact_index')) }}" class="btn btn-outline-secondary">Annuler</a>
+        <button class="btn btn-primary" id="saveButton">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+    
+{{ form_end(form) }}

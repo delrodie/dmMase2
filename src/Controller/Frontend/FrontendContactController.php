@@ -16,7 +16,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/contact')]
 class FrontendContactController extends AbstractController
 {
-    public function __construct(private Utility $utility, private EntityManagerInterface $entityManager)
+    public function __construct(
+        private Utility $utility, private EntityManagerInterface $entityManager,
+        private AllRepositories $allRepositories
+    )
     {
     }
 
@@ -41,6 +44,7 @@ class FrontendContactController extends AbstractController
         return $this->render('frontend/contact.html.twig',[
             'message' => $message,
             'form' => $form,
+            'contact' => $this->allRepositories->allCache('contact'),
         ]);
     }
 }
