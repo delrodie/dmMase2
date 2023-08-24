@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use App\Service\AllRepositories;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class BackendContactController extends AbstractController
 {
     #[Route('/', name: 'app_backend_contact_index', methods: ['GET'])]
-    public function index(ContactRepository $contactRepository): Response
+    public function index(ContactRepository $contactRepository, AllRepositories $allRepositories): Response
     {
-        $contact = $contactRepository->findOneBy([],['id'=>"DESC"]);
+        $contact = $allRepositories->allCache('contact', true);
         if ($contact) {
             return $this->redirectToRoute('app_backend_contact_edit',['id'=>$contact->getId()]);
         }
