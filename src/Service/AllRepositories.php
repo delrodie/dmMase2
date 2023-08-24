@@ -35,11 +35,13 @@ class AllRepositories
         return false;
     }
 
-    public function getEntrepriseAleatoire(): bool
+    public function getEntrepriseAleatoire()
     {
         $entreprises = $this->allCache('entreprise', true);
 
-        return shuffle($entreprises);
+        shuffle($entreprises);
+
+        return array_slice($entreprises, 0,count($entreprises));
     }
 
     public function allCache(string $cacheName, bool $delete = false)
