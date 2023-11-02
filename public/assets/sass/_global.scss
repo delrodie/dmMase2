@@ -436,6 +436,27 @@ main{
             }
         }
     }
+
+    #galerie{
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card{
+            border-radius: 0;
+            border: solid 1px rgba(#ccc, 0.4);
+            overflow: hidden;
+            transition: all .3s ease-in-out;
+
+            &:hover{
+                img{
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+    }
 }
 
 footer{
