@@ -82,4 +82,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findWithout(string $username)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.email <> :username')
+            ->setParameter('username', $username)
+            ->getQuery()->getResult()
+            ;
+    }
 }
