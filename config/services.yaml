@@ -30,3 +30,4 @@ services:
             $presentationDirectory: '%kernel.project_dir%/public/upload/presentation'
             $actualiteDirectory: '%kernel.project_dir%/public/upload/actualites'
             $entrepriseDirectory: '%kernel.project_dir%/public/upload/entreprise'
+            $galerieDirectory: '%kernel.project_dir%/public/upload/galerie'

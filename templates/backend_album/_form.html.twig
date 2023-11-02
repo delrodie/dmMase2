@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12 mt-3">{{ form_row(form.titre) }}</div>
+    <div class="col-6 mt-3">{{ form_row(form.media) }}</div>
+    <div class="col-6 mt-3">
+        {% if album.media %}
+            <img src="{{ absolute_url(asset('upload/galerie/' ~ album.media)) }}" alt="{{ album.titre }}" class="img-fluid">
+        {% endif %}
+    </div>
+</div>
+{{ form_widget(form) }}
+<div class="text-end mt-5">
+    <a href="{{ absolute_url(path('app_backend_album_index')) }}" class="btn btn-outline-secondary">Annuler</a>
+    <button id="saveButton" class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+</div>
+{{ form_end(form) }}

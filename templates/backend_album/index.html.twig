@@ -1,0 +1,127 @@
+{% extends 'backend_layout.html.twig' %}
+
+{% block title %}{{ parent() }} Gestion liste des albums{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+            <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h4 class="fw-semibold mb-8">Gestion des albums</h4>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-muted" href="#">Divers</a></li>
+                                <li class="breadcrumb-item"><a class="text-muted" href="#">Page</a></li>
+                                <li class="breadcrumb-item" aria-current="page">albums</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center mb-n5">
+                            <span class="head-icon"><i class="ti-image"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="row mt-5 mb-5">
+                <div class="col text-end">
+                    <a href="{{ absolute_url(path('app_backend_album_new')) }}" class="btn btn-primary">
+                        <i class="ti-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                {% for album in albums %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 rounded-2 overflow-hidden hover-img">
+                            <div class="position-relative">
+                                <a href="javascript:void(0)"><img src="{{ absolute_url(asset('upload/galerie/' ~ album.media)) }}" class="card-img-top rounded-0" alt="{{ album.titre }}"></a>
+                            </div>
+                            <div class="card-body p-4">
+                                <a class="d-block my-4 fs-5 text-dark fw-semibold" href="#">{{ album.titre }}</a>
+                                {% set nombre_photo = album.photos|length %}
+                                <p>{{ nombre_photo > 1 ? nombre_photo ~ ' photos' : nombre_photo ~ ' photo' }}</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="row">
+                                    <div class="col d-grid">
+                                        <a href="{{ absolute_url(path('app_backend_album_edit',{"id": album.id})) }}" class="btn btn-primary">Modifier</a>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <a href="{{ absolute_url(path('app_backend_album_show',{"id": album.id})) }}" class="btn btn-outline-primary"><i class="ti-image"></i> Photos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+{#            <nav aria-label="...">#}
+{#                <ul class="pagination justify-content-center mb-0 mt-4">#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 d-flex align-items-center justify-content-center" href="#"><i class="ti ti-chevron-left"></i></a>#}
+{#                    </li>#}
+{#                    <li class="page-item active" aria-current="page">#}
+{#                        <a class="page-link border-0 rounded-circle round-32 mx-1 d-flex align-items-center justify-content-center" href="#">1</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">2</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">3</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">4</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">5</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">...</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 mx-1 d-flex align-items-center justify-content-center" href="#">10</a>#}
+{#                    </li>#}
+{#                    <li class="page-item">#}
+{#                        <a class="page-link border-0 rounded-circle text-dark round-32 d-flex align-items-center justify-content-center" href="#"><i class="ti ti-chevron-right"></i></a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+        </section>
+
+
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ absolute_url(asset('backoffice/vendor/tinymce/tinymce.min.js')) }}"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#cgu_contenu',  // change this value according to your HTML
+            language_url: '{{ absolute_url(asset('backoffice/vendor/tinymce/langs/fr_FR/langs/fr_FR.js')) }}',
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+                'media', 'table', 'emoticons', 'template', 'help'
+            ],
+            a_plugin_option: true,
+            a_configuration_option: 400,
+            menubar: true,
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
+
+            setup: function (editor) {
+                editor.on('init', function () {
+                    var textarea = document.getElementById('cgu_contenu');
+                    editor.setContent(textarea.value);
+                    textarea.style.display = 'none';
+                });
+            }
+        });
+    </script>
+{% endblock %}
